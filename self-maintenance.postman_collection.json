@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b3a7f73a-960e-48a6-b5a1-6ed21ea47108",
+		"_postman_id": "3289da0b-cd40-4190-80c5-45919bf8a8f2",
 		"name": "self-maintenance",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28448976"
@@ -30,7 +30,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"joaodadsa.silva@example.com\",\r\n    \"senha\": \"senha123\"\r\n}",
+							"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"senha\": \"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -53,22 +53,16 @@
 			]
 		},
 		{
-			"name": "Cliente",
+			"name": "Usuario",
 			"item": [
 				{
 					"name": "Criar",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{bearer_token}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"usuario\": {\r\n    \"nome\": \"João da Silva\",\r\n    \"idade\": 30,\r\n    \"email\": \"joao.silva@example.com\",\r\n    \"contato\": \"123456789\",\r\n    \"sexo\": \"Masculino\",\r\n    \"senha\": \"senhaSegura123\",\r\n    \"role\": \"CLIENTE\"  \r\n  },\r\n  \"cliente\": {\r\n    \"endereco\": \"Rua Exemplo, 123\",\r\n    \"cpf\": \"123.456.789-00\"\r\n  }\r\n}\r\n",
+							"raw": "{\r\n  \"nome\": \"João Silva\",\r\n  \"cpf\": \"123.456.789-09\",\r\n  \"sexo\": \"M\",\r\n  \"usuarioAutenticavel\": {\r\n    \"nome\": \"João Silva\",\r\n    \"email\": \"user@example.com\",\r\n    \"contato\": \"5511999999999\",\r\n    \"senha\": \"1234\",\r\n    \"role\": \"CLIENTE\"\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -76,12 +70,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_api}}/cliente",
+							"raw": "{{base_api}}/usuario/",
 							"host": [
 								"{{base_api}}"
 							],
 							"path": [
-								"cliente"
+								"usuario",
+								""
 							]
 						}
 					},
