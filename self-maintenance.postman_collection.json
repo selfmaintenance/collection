@@ -18,7 +18,7 @@
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);\r",
 									"\r",
-									"postman.setEnvironmentVariable(\"bearer_token\", jsonData.dados);"
+									"postman.setEnvironmentVariable(\"bearer_token\", jsonData.dados.token);"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -30,7 +30,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"senha\": \"1234\"\r\n}",
+							"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"senha\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -62,7 +62,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"João Silva\",\r\n  \"cpf\": \"123.456.789-09\",\r\n  \"sexo\": \"M\",\r\n  \"usuarioAutenticavel\": {\r\n    \"nome\": \"João Silva\",\r\n    \"email\": \"user@example.com\",\r\n    \"contato\": \"5511999999999\",\r\n    \"senha\": \"1234\",\r\n    \"role\": \"CLIENTE\"\r\n  }\r\n}",
+							"raw": "{\r\n  \"nome\": \"João Silva\",\r\n  \"cpf\": \"123.456.789-09\",\r\n  \"sexo\": \"M\",\r\n  \"usuarioAutenticavel\": {\r\n    \"nome\": \"João Silva\",\r\n    \"email\": \"usdeDr@example.com\",\r\n    \"contato\": \"5511999999999\",\r\n    \"senha\": \"123456\",\r\n    \"role\": \"PRESTADOR\"\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -76,6 +76,76 @@
 							],
 							"path": [
 								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Veiculo",
+			"item": [
+				{
+					"name": "Veiculo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"placa\": \"ABC1234\",\r\n  \"tipo\": \"CARRO\", \r\n  \"marca\": \"Ford\",\r\n  \"ano\": 2023,\r\n  \"chassi\": \"9B1FC2F1XKJ123456\",\r\n  \"renavam\": \"123456789\",\r\n  \"cor\": \"Preto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_api}}/veiculo/",
+							"host": [
+								"{{base_api}}"
+							],
+							"path": [
+								"veiculo",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_api}}/veiculo/",
+							"host": [
+								"{{base_api}}"
+							],
+							"path": [
+								"veiculo",
 								""
 							]
 						}
