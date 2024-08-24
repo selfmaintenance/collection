@@ -213,7 +213,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "2"
+									"value": "3"
 								}
 							]
 						}
@@ -237,7 +237,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"tipo\": \"OUTRO\"\r\n}",
+							"raw": "{\r\n  \"tipo\": \"CARRO\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -256,7 +256,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "3"
+									"value": "1"
 								}
 							]
 						}
@@ -300,6 +300,145 @@
 							"path": [
 								"recurso",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_api}}/recurso/",
+							"host": [
+								"{{base_api}}"
+							],
+							"path": [
+								"recurso",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_api}}/recurso/:id",
+							"host": [
+								"{{base_api}}"
+							],
+							"path": [
+								"recurso",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_api}}/recurso/:id",
+							"host": [
+								"{{base_api}}"
+							],
+							"path": [
+								"recurso",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Peça 1\",\r\n  \"quantidade\": 100,\r\n  \"descricao\": \"Peça\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_api}}/recurso/:id",
+							"host": [
+								"{{base_api}}"
+							],
+							"path": [
+								"recurso",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
 							]
 						}
 					},
