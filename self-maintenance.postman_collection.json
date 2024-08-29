@@ -30,7 +30,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"dilsinho@example.com\",\r\n    \"senha\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"email\": \"prdestfjahhkdor@example.com\",\r\n    \"senha\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -62,7 +62,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"João Silva\",\r\n  \"cpf\": \"123.456.789-09\",\r\n  \"sexo\": \"M\",\r\n  \"usuarioAutenticavel\": {\r\n    \"nome\": \"João Silva\",\r\n    \"email\": \"user@example.com\",\r\n    \"contato\": \"5511999999999\",\r\n    \"senha\": \"123456\",\r\n    \"role\": \"CLIENTE\"\r\n  }\r\n}",
+							"raw": "{\r\n  \"nome\": \"João Silva\",\r\n  \"cnpj\": \"37.386.367/0001-03\",\r\n  \"sexo\": \"M\",\r\n  \"usuarioAutenticavel\": {\r\n    \"nome\": \"João Silva\",\r\n    \"email\": \"user@example.com\",\r\n    \"contato\": \"5511999999999\",\r\n    \"senha\": \"123456\",\r\n    \"role\": \"OFICINA\"\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -85,364 +85,417 @@
 			]
 		},
 		{
-			"name": "Veiculo",
+			"name": "Oficina",
 			"item": [
 				{
-					"name": "Veiculo",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer_token}}",
-									"type": "string"
+					"name": "Recurso",
+					"item": [
+						{
+							"name": "Criar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Peça 23\",\r\n  \"quantidade\": 100,\r\n  \"descricao\": \"Peça para ajuste lateral de motos.\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api}}/recurso/",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"recurso",
+										""
+									]
 								}
-							]
+							},
+							"response": []
 						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"placa\": \"ABC1234\",\r\n  \"tipo\": \"CARRO\", \r\n  \"marca\": \"Ford\",\r\n  \"ano\": 2023,\r\n  \"chassi\": \"9B1FC2F1XKJ123456\",\r\n  \"renavam\": \"123456789\",\r\n  \"cor\": \"Preto\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Listar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api}}/recurso/",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"recurso",
+										""
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{base_api}}/veiculo/",
-							"host": [
-								"{{base_api}}"
-							],
-							"path": [
-								"veiculo",
-								""
-							]
+						{
+							"name": "Buscar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api}}/recurso/:id",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"recurso",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_api}}/recurso/:id",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"recurso",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Peça 1\",\r\n  \"quantidade\": 100,\r\n  \"descricao\": \"Peça\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api}}/recurso/:id",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"recurso",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Listar",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer_token}}",
-									"type": "string"
+					"name": "Prestador",
+					"item": [
+						{
+							"name": "Criar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"João Silva\",\r\n  \"cpf\": \"979.307.840-53\",\r\n  \"sexo\": \"M\",\r\n  \"usuarioAutenticavelPrestador\": {\r\n    \"nome\": \"João Silva\",\r\n    \"email\": \"prdestfjahhkdor@example.com\",\r\n    \"contato\": \"5511999999999\",\r\n    \"senha\": \"123456\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api}}/oficina/prestador/",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"oficina",
+										"prestador",
+										""
+									]
 								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_api}}/veiculo/",
-							"host": [
-								"{{base_api}}"
-							],
-							"path": [
-								"veiculo",
-								""
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Buscar",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_api}}/veiculo/:id",
-							"host": [
-								"{{base_api}}"
-							],
-							"path": [
-								"veiculo",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Deletar",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{base_api}}/veiculo/:id",
-							"host": [
-								"{{base_api}}"
-							],
-							"path": [
-								"veiculo",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "3"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Editar",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"tipo\": \"CARRO\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_api}}/veiculo/:id",
-							"host": [
-								"{{base_api}}"
-							],
-							"path": [
-								"veiculo",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
+					]
 				}
 			]
 		},
 		{
-			"name": "Recurso",
+			"name": "Cliente",
 			"item": [
 				{
-					"name": "Criar",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer_token}}",
-									"type": "string"
+					"name": "Veiculo",
+					"item": [
+						{
+							"name": "Veiculo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"placa\": \"ABC1234\",\r\n  \"tipo\": \"CARRO\", \r\n  \"marca\": \"Ford\",\r\n  \"ano\": 2023,\r\n  \"chassi\": \"9B1FC2F1XKJ123456\",\r\n  \"renavam\": \"123456789\",\r\n  \"cor\": \"Preto\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api}}/veiculo/",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"veiculo",
+										""
+									]
 								}
-							]
+							},
+							"response": []
 						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Peça 23\",\r\n  \"quantidade\": 100,\r\n  \"descricao\": \"Peça para ajuste lateral de motos.\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Listar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api}}/veiculo/",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"veiculo",
+										""
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{base_api}}/recurso/",
-							"host": [
-								"{{base_api}}"
-							],
-							"path": [
-								"recurso",
-								""
-							]
+						{
+							"name": "Buscar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api}}/veiculo/:id",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"veiculo",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_api}}/veiculo/:id",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"veiculo",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"tipo\": \"CARRO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api}}/veiculo/:id",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"veiculo",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_api}}/recurso/",
-							"host": [
-								"{{base_api}}"
-							],
-							"path": [
-								"recurso",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Buscar",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_api}}/recurso/:id",
-							"host": [
-								"{{base_api}}"
-							],
-							"path": [
-								"recurso",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Deletar",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{base_api}}/recurso/:id",
-							"host": [
-								"{{base_api}}"
-							],
-							"path": [
-								"recurso",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Editar",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Peça 1\",\r\n  \"quantidade\": 100,\r\n  \"descricao\": \"Peça\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_api}}/recurso/:id",
-							"host": [
-								"{{base_api}}"
-							],
-							"path": [
-								"recurso",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
+					]
 				}
 			]
 		}
