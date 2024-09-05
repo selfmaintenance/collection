@@ -70,13 +70,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_api}}/usuario/",
+							"raw": "{{base_api}}/usuario",
 							"host": [
 								"{{base_api}}"
 							],
 							"path": [
-								"usuario",
-								""
+								"usuario"
 							]
 						}
 					},
@@ -115,13 +114,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_api}}/recurso/",
+									"raw": "{{base_api}}/recurso",
 									"host": [
 										"{{base_api}}"
 									],
 									"path": [
-										"recurso",
-										""
+										"recurso"
 									]
 								}
 							},
@@ -143,13 +141,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_api}}/recurso/",
+									"raw": "{{base_api}}/recurso",
 									"host": [
 										"{{base_api}}"
 									],
 									"path": [
-										"recurso",
-										""
+										"recurso"
 									]
 								}
 							},
@@ -296,14 +293,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_api}}/oficina/prestador/",
+									"raw": "{{base_api}}/oficina/prestador",
 									"host": [
 										"{{base_api}}"
 									],
 									"path": [
 										"oficina",
-										"prestador",
-										""
+										"prestador"
 									]
 								}
 							},
@@ -344,13 +340,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_api}}/veiculo/",
+									"raw": "{{base_api}}/veiculo",
 									"host": [
 										"{{base_api}}"
 									],
 									"path": [
-										"veiculo",
-										""
+										"veiculo"
 									]
 								}
 							},
@@ -372,13 +367,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_api}}/veiculo/",
+									"raw": "{{base_api}}/veiculo",
 									"host": [
 										"{{base_api}}"
 									],
 									"path": [
-										"veiculo",
-										""
+										"veiculo"
 									]
 								}
 							},
