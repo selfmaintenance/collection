@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a7319d84-44b6-4007-91b5-d18fd8318bf2",
+		"_postman_id": "44f48fb9-eba3-46f9-8172-462a453ee0f6",
 		"name": "self-maintenance",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "38541905"
+		"_exporter_id": "28630477"
 	},
 	"item": [
 		{
@@ -360,7 +360,16 @@
 									]
 								},
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "{{base_api}}/procedimentos",
+									"host": [
+										"{{base_api}}"
+									],
+									"path": [
+										"procedimentos"
+									]
+								}
 							},
 							"response": []
 						},
@@ -380,12 +389,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_api}}/procedimentos",
+									"raw": "{{base_api}}/procedimentos/1",
 									"host": [
 										"{{base_api}}"
 									],
 									"path": [
-										"procedimentos"
+										"procedimentos",
+										"1"
 									]
 								}
 							},
